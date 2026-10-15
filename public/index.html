@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TinyJob — TinyFish-Powered Live Career Scraper</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="flex flex-col min-h-screen">
+
+  <!-- Header -->
+  <header class="glass-panel sticky top-0 z-40 border-b border-slate-800/80 px-4 lg:px-8 py-3.5">
+    <div class="max-w-6xl mx-auto flex flex-wrap items-center justify-between gap-4">
+      <div class="flex items-center space-x-3">
+        <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-cyan-500 to-blue-600 flex items-center justify-center font-bold text-white shadow-lg shadow-cyan-500/20">
+          ⚡
+        </div>
+        <div>
+          <div class="flex items-center space-x-2">
+            <h1 class="text-lg font-extrabold text-white font-mono">Tiny<span class="text-cyan-400">Job</span></h1>
+            <span class="px-2 py-0.5 text-[10px] font-semibold rounded-full bg-cyan-950 text-cyan-300 border border-cyan-800/60 font-mono">TinyFish × Team Technojam</span>
+          </div>
+          <p class="text-[11px] text-slate-400">Agentic Career Scraper for Your Specific Requirement</p>
+        </div>
+      </div>
+
+      <div class="flex items-center flex-wrap gap-2 text-xs">
+        <button id="btnArchModal" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition flex items-center gap-1.5">
+          <span>🏗️</span>
+          <span>How It Works</span>
+          <span class="px-1.5 py-0.2 text-[10px] bg-emerald-950 text-emerald-400 rounded font-mono">200 pts</span>
+        </button>
+
+        <button id="btnSocialModal" class="px-3 py-1.5 rounded-lg bg-blue-900/40 hover:bg-blue-900/60 text-blue-200 border border-blue-700/60 transition flex items-center gap-1.5">
+          <span>📢</span>
+          <span>Social Posts</span>
+        </button>
+
+        <span class="px-2.5 py-1 rounded-lg bg-emerald-950/80 text-emerald-400 border border-emerald-800/60 font-mono text-[11px] flex items-center gap-1.5">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+          TinyFish Key Active
+        </span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="max-w-5xl mx-auto px-4 py-8 flex-1 w-full space-y-6">
+
+    <!-- Hero Search Section -->
+    <div class="glass-panel rounded-2xl p-6 md:p-8 border border-slate-800 relative overflow-hidden space-y-6">
+      <div class="space-y-1">
+        <h2 class="text-2xl md:text-3xl font-extrabold text-white">Find Exactly What You're Looking For</h2>
+        <p class="text-xs md:text-sm text-slate-400">
+          Enter your specific role title and work location type. TinyFish searches live ATS pages (Greenhouse, Lever, Ashby) and navigates company portals to bring you real openings with direct apply links.
+        </p>
+      </div>
+
+      <!-- Scraper Form -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        
+        <!-- Job Title Input -->
+        <div class="space-y-1.5">
+          <label class="text-xs font-semibold text-slate-300">Target Job Title / Requirement</label>
+          <input type="text" id="inputRole" value="UI/UX Designer" placeholder="e.g. UI/UX Designer, Frontend Engineer, AI Intern" 
+            class="w-full bg-slate-900/90 border border-slate-700 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-cyan-500 font-medium">
+          
+          <!-- Quick Preset Chips -->
+          <div class="flex flex-wrap gap-1.5 pt-1">
+            <button class="role-chip px-2.5 py-0.5 text-[11px] bg-cyan-950 text-cyan-300 rounded-md border border-cyan-800/70">UI/UX Designer</button>
+            <button class="role-chip px-2.5 py-0.5 text-[11px] bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-md border border-slate-700">Product Designer</button>
+            <button class="role-chip px-2.5 py-0.5 text-[11px] bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-md border border-slate-700">UI/UX Intern</button>
+            <button class="role-chip px-2.5 py-0.5 text-[11px] bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-md border border-slate-700">Frontend Dev</button>
+          </div>
+        </div>
+
+        <!-- Location / Work Type Input -->
+        <div class="space-y-1.5">
+          <label class="text-xs font-semibold text-slate-300">Location / Work Type</label>
+          <input type="text" id="inputLocation" value="Delhi, India" placeholder="e.g. Remote, Delhi, India, Bangalore" 
+            class="w-full bg-slate-900/90 border border-slate-700 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-cyan-500 font-medium">
+          
+          <!-- Location Preset Chips -->
+          <div class="flex flex-wrap gap-1.5 pt-1">
+            <button class="loc-chip px-2.5 py-0.5 text-[11px] bg-cyan-950 text-cyan-300 rounded-md border border-cyan-800/70">Delhi, India</button>
+            <button class="loc-chip px-2.5 py-0.5 text-[11px] bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-md border border-slate-700">Remote</button>
+            <button class="loc-chip px-2.5 py-0.5 text-[11px] bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-md border border-slate-700">Delhi NCR</button>
+            <button class="loc-chip px-2.5 py-0.5 text-[11px] bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-md border border-slate-700">Gurgaon</button>
+            <button class="loc-chip px-2.5 py-0.5 text-[11px] bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-md border border-slate-700">Noida</button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Skills Tags -->
+      <div class="space-y-2 pt-1 border-t border-slate-800">
+        <label class="text-xs font-semibold text-slate-300">Required Skills & Tools</label>
+        <div id="skillsContainer" class="flex flex-wrap items-center gap-1.5">
+          <!-- Dynamic Skill Tags -->
+        </div>
+      </div>
+
+      <!-- Scrape CTA Button -->
+      <div class="pt-2 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div class="text-xs text-slate-400 flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+          <span>Queries live web via TinyFish Search, Fetch, and Agent</span>
+        </div>
+        <button id="btnScrape" class="w-full sm:w-auto px-7 py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-bold text-sm shadow-lg shadow-cyan-500/25 transition transform active:scale-95 flex items-center justify-center space-x-2">
+          <span id="btnIcon">⚡</span>
+          <span id="btnText">Scrape Live Jobs with TinyFish</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Live Scrape Console / Stepper -->
+    <div id="scrapeConsole" class="hidden glass-panel rounded-2xl p-4 border border-cyan-800/40 space-y-2 font-mono text-xs">
+      <div class="flex items-center justify-between text-cyan-400 font-bold">
+        <span class="flex items-center gap-2">
+          <span class="w-2.5 h-2.5 rounded-full bg-cyan-400 animate-ping"></span>
+          TinyFish Web Scraper in Progress...
+        </span>
+        <span id="consoleStatus" class="text-slate-400">Connecting...</span>
+      </div>
+      <div id="consoleLogs" class="bg-slate-950 p-3 rounded-xl border border-slate-800/80 text-slate-300 space-y-1 max-h-40 overflow-y-auto">
+        <div>[TinyFish] Starting live web scrape...</div>
+      </div>
+    </div>
+
+    <!-- Results Header -->
+    <div class="flex items-center justify-between pt-2">
+      <div class="flex items-center space-x-2">
+        <h3 class="text-lg font-bold text-white">Scraped Job Openings</h3>
+        <span id="jobCountBadge" class="px-2 py-0.5 rounded-full bg-slate-800 text-slate-300 text-xs font-mono font-bold">0</span>
+      </div>
+      <div class="flex items-center space-x-2 text-xs">
+        <a href="/api/export/csv" class="px-3 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 transition">Export CSV</a>
+        <a href="/api/export/json" class="px-3 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 transition">Export JSON</a>
+      </div>
+    </div>
+
+    <!-- Jobs Container -->
+    <div id="jobsList" class="space-y-3.5">
+      <!-- Dynamic Job Cards Inserted Here -->
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-slate-800/80 bg-slate-950/80 py-5 px-4 text-center text-xs text-slate-500 mt-12">
+    Built for <strong>TinyFish × Team Technojam Workshop</strong> (Galgotias University) • 200 Points Tier
+  </footer>
+
+  <!-- ==================== MODALS ==================== -->
+
+  <!-- Architecture Modal -->
+  <div id="modalArch" class="fixed inset-0 z-50 modal-bg flex items-center justify-center p-4 hidden">
+    <div class="glass-panel max-w-2xl w-full rounded-2xl border border-slate-700 p-6 space-y-4 max-h-[90vh] overflow-y-auto text-xs">
+      <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+        <h3 class="text-base font-bold text-white">How TinyFish Endpoints Are Used (200 Pts Tier)</h3>
+        <button class="close-modal text-slate-400 hover:text-white text-lg">✕</button>
+      </div>
+
+      <div class="space-y-3 text-slate-300 leading-relaxed">
+        <div class="p-3 rounded-xl bg-slate-900 border border-slate-800 space-y-1">
+          <div class="font-bold text-cyan-400">1. TinyFish Search API (api.search.tinyfish.ai)</div>
+          <p>Dynamically searches live ATS boards (Greenhouse, Lever, Ashby) with tailored search operators for your exact job title and location. Discovers new postings live without hardcoded lists.</p>
+        </div>
+
+        <div class="p-3 rounded-xl bg-slate-900 border border-slate-800 space-y-1">
+          <div class="font-bold text-blue-400">2. TinyFish Fetch API (api.fetch.tinyfish.ai)</div>
+          <p>Batch renders modern JavaScript SPAs using TinyFish's managed Chromium fleet, bypassing client-side hydration hurdles and extracting clean markdown job descriptions and qualifications.</p>
+        </div>
+
+        <div class="p-3 rounded-xl bg-slate-900 border border-slate-800 space-y-1">
+          <div class="font-bold text-purple-400">3. TinyFish Agent API (agent.tinyfish.ai/v1/automation/run)</div>
+          <p>Autonomous "AI That Clicks" for interactive corporate career boards (like Stripe, Zomato, Blinkit) — navigating dropdowns and extracting structured data conforming to a JSON schema.</p>
+        </div>
+      </div>
+
+      <div class="text-right">
+        <button class="close-modal px-4 py-2 bg-slate-800 hover:bg-slate-700 text-white rounded-lg font-semibold">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Social Posts Modal -->
+  <div id="modalSocial" class="fixed inset-0 z-50 modal-bg flex items-center justify-center p-4 hidden">
+    <div class="glass-panel max-w-2xl w-full rounded-2xl border border-slate-700 p-6 space-y-4 max-h-[90vh] overflow-y-auto text-xs">
+      <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+        <h3 class="text-base font-bold text-white">Social Media Launch Posts (Required)</h3>
+        <button class="close-modal text-slate-400 hover:text-white text-lg">✕</button>
+      </div>
+
+      <div class="space-y-4">
+        <div>
+          <div class="flex items-center justify-between mb-1.5">
+            <span class="font-bold text-blue-400">LinkedIn Post</span>
+            <button id="btnCopyLinkedIn" class="px-2.5 py-1 bg-cyan-600 hover:bg-cyan-500 text-white text-[11px] rounded font-semibold">Copy Post</button>
+          </div>
+          <textarea id="textLinkedIn" rows="8" readonly class="w-full bg-slate-950 border border-slate-800 rounded-xl p-3 font-mono text-slate-300"></textarea>
+        </div>
+
+        <div>
+          <div class="flex items-center justify-between mb-1.5">
+            <span class="font-bold text-cyan-400">X (Twitter) Post</span>
+            <button id="btnCopyX" class="px-2.5 py-1 bg-cyan-600 hover:bg-cyan-500 text-white text-[11px] rounded font-semibold">Copy Post</button>
+          </div>
+          <textarea id="textX" rows="6" readonly class="w-full bg-slate-950 border border-slate-800 rounded-xl p-3 font-mono text-slate-300"></textarea>
+        </div>
+      </div>
+
+      <div class="text-right">
+        <button class="close-modal px-4 py-2 bg-slate-800 hover:bg-slate-700 text-white rounded-lg font-semibold">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
