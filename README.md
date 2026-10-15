@@ -40,6 +40,4 @@ Open **`http://localhost:3000`** in your browser.
 
 ---
 
-## 📢 Social Media Posts (Required Submission)
 
-* Ready-to-publish posts tagging **TinyFish** are available in the in-app **Social Posts** modal with 1-click clipboard copy!
