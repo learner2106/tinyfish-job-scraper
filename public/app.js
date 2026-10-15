@@ -15,6 +15,8 @@ Instead of manually checking 15+ job portals every day, TinyJob uses TinyFish's 
 
 Clean results, real links, and less time refreshing careers pages! ⚡
 
+Check it out: https://github.com/learner2106/tinyfish-job-scraper
+
 #AIThatClicks #TinyFish #WebScraping #JobScraper #TechnoJam #GalgotiasUniversity #BuildInPublic #AI #UIUX`;
 
 const X_POST = `Built TinyJob for the @TinyFish × @TeamTechnoJam workshop! ⚡
@@ -22,6 +24,7 @@ const X_POST = `Built TinyJob for the @TinyFish × @TeamTechnoJam workshop! ⚡
 A live web scraper that uses TinyFish APIs (Search, Fetch, and Agent) to pull active job openings for your exact requirement (e.g. UI/UX Designer in Delhi NCR or Remote).
 
 Clean results. Real links. Less time refreshing! 🚀
+Check it out: https://github.com/learner2106/tinyfish-job-scraper
 
 #AIThatClicks #TinyFish #JobRadar #TechnoJam #WebScraping #UIUX`;
 
